@@ -9,7 +9,29 @@
   </a>
 </div>
 
-## What does it do?
+## What does it do? ❓
   The app is a <strong>Task List</strong> which can only be used on terminal. When you start the application, it gives you some options (a menu), which includes create, remove, or edit a task. It uses an interactive menu, where you can select the option you want to execute.
 
+## Installing Dependencies ⚙️
+  To install the dependencies, use: <br>
+  ```
+  npm i 
+  ```
+  or
 
+  ```
+  npm install 
+  ```
+
+## How To Use 🚀
+### Runing the app
+  
+  First, in your terminal, move into the project directory: <br>
+  ```
+  cd place-you-downloaded-the-project/terminal-task-list
+  ```
+    
+  then type: <br>
+  ```
+  node index.js
+  ```
