@@ -36,3 +36,40 @@ const mostrarTarefas = () => {
     console.log("Sem tarefas para mostrar \n");
   }
 };
+
+const mostrarMenu = async () => {
+  const respostas = await inquirer.prompt([
+    {
+      type: "list",
+      name: "resposta",
+      message: "O que deseja fazer?",
+      choices: [
+        "1. Criar Tarefa",
+        "2. Remover Tarefa",
+        "3. Editar Tarefa",
+        "4. Marcar/desmarcar Tarefa como concluída",
+        "5. Sair",
+      ],
+    },
+  ]);
+
+  switch (respostas.resposta) {
+    case "1. Criar Tarefa":
+      adicionarTarefa();
+      break;
+    case "2. Remover Tarefa":
+      removerTarefa();
+      break;
+    case "3. Editar Tarefa":
+      editarTarefa();
+      break;
+    case "4. Marcar/desmarcar Tarefa como concluída":
+      mudarEstado();
+      break;
+    case "5. Sair":
+      sair();
+      break;
+    default:
+      console.log("Algo deu errado");
+  }
+};
