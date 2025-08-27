@@ -194,3 +194,10 @@ const mudarEstado = async () => {
   mostrarTarefas();
   await mostrarMenu();
 };
+
+const sair = () => {
+  console.log("Você saiu da aplicação");
+};
+
+mostrarTarefas();
+mostrarMenu();
