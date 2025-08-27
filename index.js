@@ -169,3 +169,28 @@ const editarTarefa = async () => {
   mostrarTarefas();
   mostrarMenu();
 };
+
+const mudarEstado = async () => {
+  const tarefaNovoEstado = await inquirer.prompt([
+    {
+      type: "list",
+      name: "tarefaNovoEstado",
+      message: "Selecione o número da tarefa que vai mudar o estado",
+      choices: listaTarefas.map((e) => e.numero),
+    },
+  ]);
+
+  listaTarefas[tarefaNovoEstado.tarefaNovoEstado - 1].feita =
+    !listaTarefas[tarefaNovoEstado.tarefaNovoEstado - 1].feita;
+
+  salvarTarefa();
+  console.log(
+    `Tarefa ${tarefaNovoEstado.tarefaNovoEstado - 1} alterada para ${
+      listaTarefas[tarefaNovoEstado.tarefaNovoEstado - 1].feita
+        ? "concluída"
+        : "pendente"
+    } \n`
+  );
+  mostrarTarefas();
+  await mostrarMenu();
+};
