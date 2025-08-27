@@ -73,3 +73,33 @@ const mostrarMenu = async () => {
       console.log("Algo deu errado");
   }
 };
+
+const adicionarTarefa = async () => {
+  const nomeNovaTarefa = await inquirer.prompt([
+    {
+      type: "input",
+      name: "nomeNovaTarefa",
+      message: "Escreva um nome para sua nova tarefa",
+    },
+  ]);
+
+  const descNovaTarefa = await inquirer.prompt([
+    {
+      type: "input",
+      name: "descNovaTarefa",
+      message: "Insira uma descrição para sua nova tarefa \n",
+    },
+  ]);
+
+  listaTarefas.push({
+    numero: listaTarefas.length + 1,
+    nome: nomeNovaTarefa.nomeNovaTarefa,
+    descricao: descNovaTarefa.descNovaTarefa,
+    feita: false,
+  });
+
+  arrumarIndice();
+  salvarTarefa();
+  mostrarTarefas();
+  await mostrarMenu();
+};
