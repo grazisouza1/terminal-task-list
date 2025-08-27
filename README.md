@@ -4,7 +4,8 @@
 
 ---
 <div align="center">
-  <a href="https://developer.mozilla.org/docs/Web/JavaScript">
+  <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank">
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black">
   </a>
 </div>
+
