@@ -1,0 +1,38 @@
+[
+  {
+    "numero": 1,
+    "nome": "Ajustar portifólio",
+    "descricao": "Colocar winKleros e outros projetos (???)",
+    "feita": false
+  },
+  {
+    "numero": 2,
+    "nome": "Arrumar Github",
+    "descricao": "Ajustar repo de projetos e testar usar readme em cada um deles",
+    "feita": false
+  },
+  {
+    "numero": 3,
+    "nome": "Pesquisar Arduino",
+    "descricao": "PEsquisar sobre o tabalho de máquinas arduino",
+    "feita": false
+  },
+  {
+    "numero": 4,
+    "nome": "Adicionar função",
+    "descricao": "Adicionar função de \"Não iniciada na lista de tarefas\"",
+    "feita": false
+  },
+  {
+    "numero": 5,
+    "nome": "Arrumar cronômetro",
+    "descricao": "Arumar cronômetro do portifólio",
+    "feita": false
+  },
+  {
+    "numero": 6,
+    "nome": "Criar repositório",
+    "descricao": "Ajustar as funções e fazer commits",
+    "feita": false
+  }
+]
