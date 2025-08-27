@@ -15,3 +15,24 @@ const arrumarIndice = () => {
     console.log("Nenhuma tarefa encontrada");
   }
 };
+
+const mostrarTarefas = () => {
+  console.log("============= LISTA DE TAREFAS =============");
+  console.log("(Para sair a qualquer momento, 'pressione Ctrl + C') \n");
+
+  if (listaTarefas.length > 0) {
+    for (let i = 0; i < listaTarefas.length; i++) {
+      console.log(
+        listaTarefas[i].numero,
+        listaTarefas[i].nome,
+        "\n",
+        listaTarefas[i].descricao,
+        "\n",
+        listaTarefas[i].feita ? "𒊹 Concluída " : "Ｏ Pendente",
+        "\n"
+      );
+    }
+  } else {
+    console.log("Sem tarefas para mostrar \n");
+  }
+};
