@@ -126,3 +126,46 @@ const removerTarefa = async () => {
   mostrarTarefas();
   await mostrarMenu();
 };
+
+const editarTarefa = async () => {
+  const tarefaEditada = await inquirer.prompt([
+    {
+      type: "list",
+      name: "tarefaEditada",
+      message: "Selecione o número da tarefa a ser editada",
+      choices: listaTarefas.map((e) => e.numero),
+    },
+  ]);
+
+  if (listaTarefas.length <= 0) {
+    console.log("Nenhuma tarefa a ser editada");
+    return;
+  }
+
+  const nomeTarefaEditada = await inquirer.prompt([
+    {
+      type: "input",
+      name: "nomeTarefaEditada",
+      message: "Escreva um nome para sua nova tarefa",
+    },
+  ]);
+
+  const descTarefaEditada = await inquirer.prompt([
+    {
+      type: "input",
+      name: "descTarefaEditada",
+      message: "Insira uma descrição para sua nova tarefa \n",
+    },
+  ]);
+
+  listaTarefas[tarefaEditada.tarefaEditada - 1].nome =
+    nomeTarefaEditada.nomeTarefaEditada;
+  listaTarefas[tarefaEditada.tarefaEditada - 1].descricao =
+    descTarefaEditada.descTarefaEditada;
+
+  console.log(`Tarefa ${tarefaEditada.tarefaEditada - 1} editada: \n`);
+  console.log(listaTarefas[tarefaEditada.tarefaEditada - 1], "\n");
+  salvarTarefa();
+  mostrarTarefas();
+  mostrarMenu();
+};
