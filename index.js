@@ -103,3 +103,26 @@ const adicionarTarefa = async () => {
   mostrarTarefas();
   await mostrarMenu();
 };
+
+const removerTarefa = async () => {
+  const tarefaRemovida = await inquirer.prompt([
+    {
+      type: "list",
+      name: "tarefaRemovida",
+      message: "Selecione o número da tarefa a ser removida",
+      choices: listaTarefas.map((e) => e.numero),
+    },
+  ]);
+
+  if (listaTarefas.length <= 0) {
+    console.log("Nenhuma tarefa a ser removida");
+  }
+
+  listaTarefas.splice(tarefaRemovida.tarefaRemovida - 1, 1);
+  console.log("\n", `Tarefa ${tarefaRemovida.tarefaRemovida} removida!`, "\n");
+
+  arrumarIndice();
+  salvarTarefa();
+  mostrarTarefas();
+  await mostrarMenu();
+};
