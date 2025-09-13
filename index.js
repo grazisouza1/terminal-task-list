@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import fs from "fs";
-import listaTarefas from "./tarefas.json" assert { type: "json" };
+import listaTarefas from "./tarefas.json" with { type: "json" };
 
 const salvarTarefa = () => {
   fs.writeFileSync("tarefas.json", JSON.stringify(listaTarefas, null, 2));
@@ -48,7 +48,8 @@ const mostrarMenu = async () => {
         "2. Remover Tarefa",
         "3. Editar Tarefa",
         "4. Marcar/desmarcar Tarefa como concluída",
-        "5. Sair",
+        "5. Limpar Lista",
+        "6. Sair",
       ],
     },
   ]);
@@ -66,7 +67,10 @@ const mostrarMenu = async () => {
     case "4. Marcar/desmarcar Tarefa como concluída":
       mudarEstado();
       break;
-    case "5. Sair":
+    case "5. Limpar Lista":
+      confirmarLimpeza();
+      break;
+    case "6. Sair":
       sair();
       break;
     default:
@@ -195,9 +199,40 @@ const mudarEstado = async () => {
   await mostrarMenu();
 };
 
+const limparLista = () => {
+  if (listaTarefas.length <= 0) {
+    console.log("\n Nenhuma tarefa a ser removida \n");
+  } else {
+    listaTarefas.length = 0
+    console.log("\n Todas as tarefas foram excluídas \n")
+  }
+
+  salvarTarefa();
+  mostrarMenu();
+};
+
+const confirmarLimpeza = async () => {
+  const confirmacao = await inquirer.prompt([
+    {
+      type: "list",
+      name:"confirmacao",
+      message: "Confirmar remoção de todas as tarefas?",
+      choices: ["Sim", "Não"]
+    }
+  ])
+
+  if (confirmacao.confirmacao === "Sim") {
+    limparLista()
+  } else {
+    console.log("Ação cancelada \n")
+    mostrarTarefas()
+    mostrarMenu()
+  }
+}
+
 const sair = () => {
   console.log("Você saiu da aplicação");
 };
 
 mostrarTarefas();
-mostrarMenu();
+mostrarMenu()
